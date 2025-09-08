@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>V. Gnananjali — Portfolio</title>
+    <style>
+         :root {
+            --accent-1: #ff6b6b;
+            --accent-2: #f8c471;
+            --accent-3: #6bcff6;
+            --bg: #0f1724;
+            --card: rgba(255, 255, 255, 0.06);
+            --glass: rgba(255, 255, 255, 0.04);
+            --muted: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --maxw: 1100px;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg, #071021 0%, #0b1530 60%);
+            color: #fff
+        }
+        
+        .wrap {
+            max-width: var(--maxw);
+            margin: 32px auto;
+            padding: 28px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+        
+        header {
+            display: flex;
+            gap: 20px;
+            align-items: center
+        }
+        
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 18px;
+            flex: 0 0 110px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 28px;
+            color: #082033;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5)
+        }
+        
+        .title {
+            flex: 1
+        }
+        
+        .name {
+            font-size: 26px;
+            margin: 0 0 6px 0;
+            letter-spacing: 0.4px
+        }
+        
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+        
+        .contacts {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px
+        }
+        
+        .chip {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            /* makes it rounded */
+            background: #f0f0f0;
+            /* light background color */
+            color: #333;
+            /* text color */
+            margin: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .chip a {
+            text-decoration: none;
+            color: inherit;
+            /* keep chip text color */
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .chip:hover {
+            background: #d1e7ff;
+            /* nice blue shade on hover */
+        }
+        /* left column */
+        
+        .panel {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border)
+        }
+        
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 18px
+        }
+        
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 10px 0;
+            line-height: 1.5
+        }
+        
+        .projects .project {
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+        
+        .project h3 {
+            margin: 0;
+            font-size: 15px
+        }
+        
+        .badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px
+        }
+        
+        .badge {
+            font-size: 12px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+            color: #082033;
+            font-weight: 600
+        }
+        /* right column */
+        
+        .side-item {
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+        
+        .skill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+        
+        .skill {
+            background: var(--glass);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+        
+        footer {
+            margin-top: 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px
+        }
+        /* navigation / actions */
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+        
+        .btn {
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600
+        }
+        
+        .btn.primary {
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-3));
+            color: #082033
+        }
+        
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted)
+        }
+        /* color picker */
+        
+        .palette {
+            display: flex;
+            gap: 8px
+        }
+        
+        .swatch {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 10px rgba(2, 6, 23, 0.6)
+        }
+        /* responsive */
+        
+        @media (max-width:900px) {
+            main {
+                grid-template-columns: 1fr
+            }
+            .avatar {
+                width: 86px;
+                height: 86px;
+                border-radius: 12px;
+                flex: 0 0 86px
+            }
+        }
+        /* subtle animations */
+        
+        .avatar {
+            width: 120px;
+            /* adjust as per design */
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #fff;
+            /* optional border */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* optional shadow */
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* ensures image fills the circle */
+        }
+        /* resume print-friendly */
+        
+        @media print {
+            body {
+                background: white;
+                color: black
+            }
+            .wrap {
+                box-shadow: none;
+                border: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="avatar"><img src="assests/WhatsApp Image 2025-09-08 at 18.19.00_d3e09689.jpg" alt="V. Gnananjali"></div>
+            <div class="title">
+                <h1 class="name">V. Gnananjali <span style="font-weight:400;font-size:14px;color:var(--muted);">— Android App Developer | UI/UX Enthusiast</span></h1>
+                <p class="subtitle">I'm a B.Tech student in Electronics &amp; Communication Engineering who loves building Android apps and translating ideas into user-friendly interfaces. Looking for a forward-thinking team to apply my skills and contribute to meaningful
+                    products.
+                </p>
+                <div class="contacts" style="margin-top:12px;">
+                    <div class="chip">Phone: +91 6301406060</div>
+                    <div class="chip">
+                        <a href="mailto:gnananjalivasapalli@gmail.com" target="_blank">Email: gnananjalivasapalli@gmail.com</a>
+                    </div>
+                    <div class="chip">
+                        <a href="https://linkedin.com/in/gnananjali-vasapalli" target="_blank">LinkedIn: linkedin.com/in/gnananjali-vasapalli</a>
+                    </div>
+                    <div class="chip">
+                        <a href="https://github.com/GnananjaliVasapalli" target="_blank">GitHub: github.com/GnananjaliVasapalli</a>
+                    </div>
+
+                </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-left:12px;align-items:flex-end">
+                <div class="controls">
+                    <button class="btn primary" id="downloadBtn">Download Resume</button>
+                    <button class="btn ghost" id="contactBtn">Contact</button>
+                </div>
+                <div style="margin-top:10px;">
+                    <div style="font-size:12px;color:var(--muted)">Theme</div>
+                    <div class="palette" id="palette">
+                        <div class="swatch" data-c1="#ff6b6b" data-c2="#f8c471" data-c3="#6bcff6" style="background:#ff6b6b"></div>
+                        <div class="swatch" data-c1="#805ad5" data-c2="#f687b3" data-c3="#63b3ed" style="background:#805ad5"></div>
+                        <div class="swatch" data-c1="#48bb78" data-c2="#f6ad55" data-c3="#9f7aea" style="background:#48bb78"></div>
+                        <div class="swatch" data-c1="#ff8a65" data-c2="#ffd166" data-c3="#60b2ff" style="background:#ff8a65"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <div class="panel">
+                    <h2>About</h2>
+                    <p class="lead">I'm a B.Tech student in Electronics &amp; Communication Engineering who loves building Android apps. I enjoy translating ideas into user-friendly interfaces and clean code. I'm looking to join a forward-thinking team where I can apply
+                        my skills, keep learning, and contribute to meaningful products.</p>
+                </div>
+
+                <div class="panel" style="margin-top:14px;">
+                    <h2>Projects</h2>
+                    <div class="projects">
+                        <div class="project">
+                            <h3>Instagram Clone (Android)</h3>
+                            <p class="lead">Authentication with Firebase (Email/Password). Real-time posts, likes, comments with Firestore & Storage. Responsive UI using XML; navigation with fragments. Business logic in Java; scalable Firebase-backed architecture.</p>
+                            <div class="badges">
+                                <div class="badge">Firebase</div>
+                                <div class="badge">Java</div>
+                                <div class="badge">Firestore</div>
+                            </div>
+                        </div>
+
+                        <div class="project">
+                            <h3>Portfolio Website</h3>
+                            <p class="lead">A colorful responsive portfolio (this page) built with semantic HTML, CSS and JavaScript. Downloadable resume and contact actions included.</p>
+                            <div class="badges">
+                                <div class="badge">HTML</div>
+                                <div class="badge">CSS</div>
+                                <div class="badge">JavaScript</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel" style="margin-top:14px;">
+                    <h2>Internship</h2>
+                    <p class="lead">APSSDC — Android App Development Trainee. Built Android UIs with XML and implemented features in Java. Integrated Firebase Auth, Firestore and Storage for real-time data & secure login. Collaborated on user profile, image upload, and
+                        interactive UI components. Debugged and optimized app performance; used Git/GitHub & REST APIs.</p>
+                </div>
+
+            </section>
+
+            <aside>
+                <div class="side-item">
+                    <h2>Skills</h2>
+                    <div class="skill-grid" style="margin-top:10px">
+                        <div class="skill">Programming: C, Java, Python</div>
+                        <div class="skill">Frontend: XML (Android UI), HTML, CSS, JavaScript</div>
+                        <div class="skill">Backend: Java</div>
+                        <div class="skill">Databases: Firebase Auth, Firestore, Realtime DB</div>
+                        <div class="skill">Tools: Android Studio, Git &amp; GitHub, Figma, VS Code</div>
+                    </div>
+                </div>
+
+                <div class="side-item">
+                    <h2>Education</h2>
+                    <p class="lead" style="margin:8px 0 0 0">Aditya College of Engineering and Technology<br>B.Tech in Electronics &amp; Communication Engineering (2022 - 2026)<br>CGPA: 6.65 &nbsp; Graduation: 06/2025</p>
+                </div>
+
+                <div class="side-item">
+                    <h2>Certifications</h2>
+                    <p class="lead" style="margin:8px 0 0 0">Android App Development — APSSDC<br>UI/UX — UXAINDO</p>
+                </div>
+
+                <div class="side-item">
+                    <h2>Contact</h2>
+                    <p class="lead" style="margin:6px 0">Phone: +91 6301406060<br>Email: gnananjalivasapalli@gmail.com</p>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <a class="btn primary" href="mailto:gnananjalivasapalli@gmail.com">Email</a>
+                        <a class="btn ghost" href="https://github.com/GnananjaliVasapalli" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <small>Designed &amp; built by V. Gnananjali — Android App Developer | UI/UX Enthusiast</small>
+        </footer>
+    </div>
+
+    <script>
+        // Color theme switching
+        document.querySelectorAll('.swatch').forEach(s => s.addEventListener('click', (e) => {
+            const c1 = e.currentTarget.dataset.c1;
+            const c2 = e.currentTarget.dataset.c2;
+            const c3 = e.currentTarget.dataset.c3;
+            document.documentElement.style.setProperty('--accent-1', c1);
+            document.documentElement.style.setProperty('--accent-2', c2);
+            document.documentElement.style.setProperty('--accent-3', c3);
+        }));
+
+        // Simple resume download (generate plain text PDF-like file)
+        document.getElementById('downloadBtn').addEventListener('click', async() => {
+            const resumeText = `V. Gnananjali\nAndroid App Developer | UI/UX Enthusiast\n\nContact:\nPhone: +91 6301406060\nEmail: gnananjalivasapalli@gmail.com\nLinkedIn: linkedin.com/in/gnananjali-vasapalli\nGitHub: github.com/GnananjaliVasapalli\n\nAbout:\nI'm a B.Tech student in Electronics & Communication Engineering who loves building Android apps and translating ideas into user-friendly interfaces.\n\nProjects:\n- Instagram Clone (Android): Firebase Auth, Firestore, Storage; Java, XML; navigation with fragments.\n- Portfolio Website: HTML/CSS/JS\n\nInternship:\nAPSSDC — Android App Development Trainee. Built UIs, integrated Firebase, debugged and optimized apps.\n\nSkills:\nC, Java, Python, Android XML, HTML, CSS, JavaScript, Firebase\n\nEducation:\nAditya College of Engineering and Technology — B.Tech ECE (2022-2026)\n\nCertifications:\nAndroid App Development — APSSDC\nUI/UX — UXAINDO\n`;
+            const blob = new Blob([resumeText], {
+                type: 'text/plain'
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'V-Gnananjali-resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        });
+
+        // Contact quick action
+        document.getElementById('contactBtn').addEventListener('click', () => {
+            window.location.href = 'mailto:gnananjalivasapalli@gmail.com?subject=Opportunity%20to%20connect';
+        });
+
+        // Smooth in-view animations (lightweight)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.panel,.side-item').forEach((el, i) => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    el.style.transition = 'all .6s cubic-bezier(.2,.9,.2,1)';
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }, 120 * i)
+            })
+        })
+    </script>
+</body>
+
+</html>
